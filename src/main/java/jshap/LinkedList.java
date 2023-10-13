@@ -47,7 +47,7 @@ public class LinkedList <T> {
      * Метод добавления элемента в конец списка
      * @param data данные, которые будут храниться в узле
      */
-    public void add(T data) {
+    public void pushBack(T data) {
         if (head == null) {
             head = new Node<>(data);
         } else {
@@ -68,7 +68,7 @@ public class LinkedList <T> {
      * @return Значение найденного элемента
      * @throws IndexOutOfBoundsException при выходе за границы списка
      */
-    public T getData(int ind) {
+    public T at(int ind) {
         if (ind < 0 || ind > size - 1) {
             throw new IndexOutOfBoundsException();
         }

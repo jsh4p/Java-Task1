@@ -9,54 +9,54 @@ class LinkedListTest {
 
     //Проверка на добавление элемента в пустой список
     @Test
-    void testAddInEmptyList() {
+    void testPushBackInEmptyList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
+        list.pushBack(1);
 
 
         assertFalse(list.isEmpty());
         assertEquals(1, list.size());
-        assertEquals(1, list.getData(0));
+        assertEquals(1, list.at(0));
     }
 
     //Проверка на добавление элемента в заполненный список
     @Test
-    void testAddInFilledList() {
+    void testPushBackInFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         assertFalse(list.isEmpty());
         assertEquals(3, list.size());
-        assertEquals(637, list.getData(2));
+        assertEquals(637, list.at(2));
     }
 
     //Проверка на получение элемента из заполненного списка
     @Test
-    void testGetDataFromFilledList() {
+    void testAtFromFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
-        assertEquals(2, list.getData(1));
+        assertEquals(2, list.at(1));
     }
 
     //Проверка на выпадение ошибки о нарушении границ списка при получении данных из списка
     @Test
-    void testGetDataOutOfBoundsException() {
+    void testAtOutOfBoundsException() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         assertThrows(IndexOutOfBoundsException.class, () -> {
-            list.getData(3);
+            list.at(3);
         });
     }
 
@@ -65,15 +65,15 @@ class LinkedListTest {
     void testRemoveFirstElementFromFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         int size = list.size();
 
         list.remove(0);
 
-        assertEquals(2, list.getData(0));
+        assertEquals(2, list.at(0));
         assertEquals(size - 1, list.size());
     }
 
@@ -82,15 +82,15 @@ class LinkedListTest {
     void testRemoveInnerElementFromFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         int size = list.size();
 
         list.remove(1);
 
-        assertEquals(637, list.getData(1));
+        assertEquals(637, list.at(1));
         assertEquals(size - 1, list.size());
     }
 
@@ -99,15 +99,15 @@ class LinkedListTest {
     void testRemoveLastElementFromFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         int size = list.size();
 
         list.remove(2);
 
-        assertEquals(2, list.getData(list.size() - 1));
+        assertEquals(2, list.at(list.size() - 1));
         assertEquals(size - 1, list.size());
     }
 
@@ -116,9 +116,9 @@ class LinkedListTest {
     void testRemoveOutOfBoundsException() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         list.remove(2);
 
@@ -140,16 +140,16 @@ class LinkedListTest {
     void testIsEmptyWithFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         assertFalse(list.isEmpty());
     }
 
     //Проверка на получение корректного размера пустого списка
     @Test
-    void testGetSizeFromEmptyList() {
+    void testSizeFromEmptyList() {
         LinkedList<Integer> list = new LinkedList<>();
 
         assertEquals(0, list.size());
@@ -157,27 +157,27 @@ class LinkedListTest {
 
     //Проверка на получение корректного размера списка после добавления элемента
     @Test
-    void testGetSizeAfterAdd() {
+    void testSizeAfterpushBack() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
+        list.pushBack(1);
+        list.pushBack(2);
 
         int size = list.size();
 
-        list.add(637);
+        list.pushBack(637);
 
         assertEquals(size + 1, list.size());
     }
 
     //Проверка на получение корректного размера списка после удаления элемента
     @Test
-    void testGetSizeAfterRemove() {
+    void testSizeAfterRemove() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         int size = list.size();
 
@@ -199,9 +199,9 @@ class LinkedListTest {
     void testToStringWithFilledList() {
         LinkedList<Integer> list = new LinkedList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(637);
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
 
         assertEquals("[ 1 -> 2 -> 637 ]", list.toString());
     }
