@@ -157,7 +157,7 @@ class LinkedListTest {
 
     //Проверка на получение корректного размера списка после добавления элемента
     @Test
-    void testSizeAfterpushBack() {
+    void testSizeAfterPushBack() {
         LinkedList<Integer> list = new LinkedList<>();
 
         list.pushBack(1);
@@ -204,5 +204,31 @@ class LinkedListTest {
         list.pushBack(637);
 
         assertEquals("[ 1 -> 2 -> 637 ]", list.toString());
+    }
+
+    @Test
+    void testClearWithEmptyList() {
+        LinkedList<Integer> list = new LinkedList<>();
+
+        int size = list.size();
+
+        list.clear();
+
+        assertEquals(size, list.size());
+    }
+
+    @Test
+    void testClearWithFilledList() {
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.pushBack(1);
+        list.pushBack(2);
+        list.pushBack(637);
+
+        int size = list.size();
+
+        list.clear();
+
+        assertEquals(size - 3, list.size());
     }
 }

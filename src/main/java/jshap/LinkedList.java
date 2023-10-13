@@ -115,6 +115,14 @@ public class LinkedList <T> {
     }
 
     /**
+     * Метод очистки списка
+     */
+    public void clear() {
+        head = null;
+        size = 0;
+    }
+
+    /**
      * Метод проверки списка на пустоту
      * @return булевое значение
      */
