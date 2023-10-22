@@ -23,7 +23,7 @@ public class LinkedList <T> {
         }
 
         /**
-         * Перегруженный метод toString класса Object
+         * Переопределенный метод toString класса Object
          * @return возвращает строку с информацией об элементе узла
          */
         @Override
@@ -139,7 +139,7 @@ public class LinkedList <T> {
     }
 
     /**
-     * Перегруженный метод toString класса Object
+     * Переопределенный метод toString класса Object
      * @return возвращает строку с информацией об элементах списка
      */
     @Override
